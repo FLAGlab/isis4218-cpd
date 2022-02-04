@@ -1,4 +1,14 @@
 defmodule HOF do
+
+  def operate(num, f) do
+    fn (x) -> f.(num, x) end
+  end
+
+  def composition(num, f1, f2) do
+    fn (x) -> f1.(num, x) |> f2.(x) end
+  end
+
+
   def map([], fun) do [] end
   def map([h|t], fun) do
     [fun.(h) | map(t, fun)]
