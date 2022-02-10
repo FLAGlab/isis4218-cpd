@@ -1,10 +1,10 @@
 defmodule Ex do
+  #1
   def map(l, fun) do
     l
       |> Enum.map(&process_map(&1, fun))
       |> Enum.map(fn x -> IO.puts "return from process #{inspect(x)}" end)
   end
-
   defp process_map(elem, fun) do
     spawn (fn ->
       :timer.sleep(5000)
@@ -12,6 +12,7 @@ defmodule Ex do
     end)
   end
 
+  #2
   def odds_even(l) do
     odds = Enum.filter(l, &(rem(&1, 2) != 0))
     even = Enum.filter(l, &(rem(&1, 2) == 0))
