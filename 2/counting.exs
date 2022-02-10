@@ -53,13 +53,6 @@ end
 
 
 
-
-
-
-
-
-
-
 defmodule AgentCounting do
   def start_link(val) do
     Agent.start_link(fn -> val end)
