@@ -1,7 +1,7 @@
 defmodule Test do
   def update(var) do
     Process.put(:c, var)
-    update(var)
+    #update(var)
   end
 
   def main do
@@ -11,8 +11,7 @@ defmodule Test do
     end)
     :timer.sleep(5000)
     Process.monitor(pid)
-    |> Keyword.get(:dictionary)
-    |> Keyword.get(:c)
+    |> Process.get(:c)    
     |> IO.puts
 
   end
