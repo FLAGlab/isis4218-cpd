@@ -34,9 +34,21 @@ defmodule Fib2 do
   def f(1), do: 1
   def f(n) do
     t = Task.async(fn -> f(n-1) end)
-    f(n-2) + Task.await(t)
+    t2 = Task.async(fn -> f(n-2) end)
+    Task.await(t2) + Task.await(t)
   end
 end
+
+
+
+
+
+
+
+
+
+
+
 
 defmodule TaskFib do
   def fib(n) do
@@ -51,7 +63,7 @@ defmodule TaskFib do
   defp loop(n) when n > 0 do
     task = Task.async(fn -> Fibonacci.fib(n) end)
     loop(n-1)
-    IO.puts "the Fibonacci number of #{n} is #{Task.await(task)}"
+   # IO.puts "the Fibonacci number of #{n} is #{Task.await(task)}"
   end
 
   def fibs(top) do
