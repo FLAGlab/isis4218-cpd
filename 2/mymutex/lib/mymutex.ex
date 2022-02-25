@@ -30,9 +30,10 @@ defmodule MyMutex do
 
     resource_id = {User, {:id, 1}}
     database_op = fn(record) ->
-      lock = Mutex.await(@mut, resource_id)
       IO.puts "Reading record #{record} from the database"
       Process.sleep(250)
+      lock = Mutex.await(@mut, resource_id)
+      
       IO.puts "Manipulate record #{record}"
       Process.sleep(250)
       IO.puts "Saving record #{record} to the database"
