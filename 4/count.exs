@@ -1,37 +1,51 @@
+defmodule Counter do
+  def start do
+    :mnesia.create_schema([node()])
+    :mnesia.start()
+    :mnesia.create_table(Count, [attributes: [:id, :count]])
+    :mnesia.dirty_write({Count, 1, 0})
+  end
 
+  def change_count do
+    :mnesia.dirty_write({Count, 1, 1})
+    :mnesia.dirty_read({Count, 1})
+  end
 
-:mnesia.create_schema([node()])
-:mnesia.start()
-:mnesia.create_table(Count, [attributes: [:id, :count]])
-:mnesia.dirty_write({Count, 1, 0})
-
-:mnesia.dirty_write({Count, 1, 1})
-:mnesia.dirty_read({Count, 1})
-
-:mnesia.transaction(fn ->
-  :mnesia.write({Count, 1, 2})
-  [{Count, id, val}] = :mneasia.read({Count, 1})
-  IO.puts id
-  IO.puts val
-end)
-
-pid1 = Task.async(fn ->
-  Enum.each(1..1_0000, fn _ ->
+  def update_two do
     :mnesia.transaction(fn ->
-      [{Count, _, val}] = :mneasia.read({Count, 1})
-      :mnesia.write({Count, 1, val+1})
+      :mnesia.write({Count, 1, 2})
+      [{Count, id, val}] = :mnesia.read({Count, 1})
+      IO.puts id
+      IO.puts val
     end)
-  end)
-end)
+  end 
 
-pid2 = Task.async(fn ->
-  Enum.each(1..1_0000, fn _ ->
-    :mnesia.transaction(fn ->
-      [{Count, _, val}] = :mneasia.read({Count, 1})
-      :mnesia.write({Count, 1, val+1})
+  def main do
+    pid1 = Task.async(fn ->
+      Enum.each(1..10_000, fn _ ->
+        :mnesia.transaction(fn ->
+          [{Count, _, val}] = :mnesia.read({Count, 1})
+          :mnesia.write({Count, 1, val+1})
+        end)
+      end)
+      :mnesia.dirty_read({Count, 1})
+      [{Count, _id, val}] = :mnesia.dirty_read({Count, 1})
+      val
     end)
-  end)
-end)
 
-IO.puts Task.await(pid2)
-IO.puts Task.await(pid1)
+    pid2 = Task.async(fn ->
+      :mnesia.transaction(fn ->
+        Enum.each(1..10_000, fn _ ->
+        
+          [{Count, _, val}] = :mnesia.read({Count, 1})
+          :mnesia.write({Count, 1, val+1})
+        end)
+      end)
+      [{Count, _id, val}] = :mnesia.dirty_read({Count, 1})
+      val
+    end)
+
+    IO.puts(Task.await(pid2))
+    IO.puts(Task.await(pid1))
+  end
+end
