@@ -1,0 +1,3 @@
+%{
+  "cspex": {:hex, :cspex, "1.1.0", "0cd30aef0495e098a014fa9c62d317f3bc7ac7b7ff235b4aad5f27e331ecb52a", [:mix], [], "hexpm"},
+}
