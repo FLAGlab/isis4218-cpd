@@ -97,7 +97,7 @@ defmodule Counter3 do
   def count(val) do
     receive do
       {:increment, _} -> count(val + 1)
-      {:stop, _} -> true
+      {:stop, _} -> Process.exit(self(), :normal)
       {sender, _} -> send sender, {self(), val}
                     count(val)
       _ -> count(val)

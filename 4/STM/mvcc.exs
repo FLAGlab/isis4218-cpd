@@ -5,8 +5,7 @@ defmodule MVCC do
 
   def get_shared_variable(name) do
     [{:current_transaction, tran}] = :ets.lookup(:registry, :current_transaction)
-    if (tran == nil), do: Agent.get(name, &(List.first(&1))
-                      else: read_transaction(tran, name)
+    if (tran == nil), do: Agent.get(name, &(List.first(&1))), else: read_transaction(tran, name)
   end
 
   defp get_write_point do
@@ -38,7 +37,7 @@ defmodule MVCC do
       |> List.first()
   end
 
-  defp write_transaction(transaction, name, new_val) end
+  defp write_transaction(transaction, name, new_val) do
     Map.get(transaction, :tran_values)
     |> Map.update(name, new_val)
     Map.get(transaction, :written_s_v)

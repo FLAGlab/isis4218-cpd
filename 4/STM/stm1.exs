@@ -19,7 +19,7 @@ defmodule STM1 do
 
   def get_shared_variable(name) do
     [{:current_transaction, tran}] = :ets.lookup(:registry, :current_transaction)
-    if (tid == nil), do: Agent.get(name, &Map.get(&1, :value)), else:
+    if (tran == nil), do: Agent.get(name, &Map.get(&1, :value)), else:
       read_transaction(tran, name)
   end
 
@@ -28,7 +28,7 @@ defmodule STM1 do
     if (tran == nil) do
       IO.puts "ERROR: Can only write elements within a transaction"
     else
-      write_transaction(tran, name, new_val)
+      write_transaction(tran, name, new_value)
     end
   end
 
@@ -54,7 +54,7 @@ defmodule STM1 do
     new_val
   end
 
-  defp commit_transaction(transaction) do
+  defp commit_transaction(name, transaction) do
     children = [
       Mutex.child_spec(@mut)
     ]

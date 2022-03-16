@@ -7,16 +7,22 @@ defmodule MyCSP do
         Channel.put(channel, :hello)
         Channel.put(channel, :cruel)
         Channel.put(channel, :world) end)
-    :timer.sleep(5000)
+    p = spawn_link(fn -> Channel.put(channel, :hello) end)    
+    :timer.sleep(1000)
     IO.puts Process.alive?(pid)
     IO.puts Channel.get(channel)
     IO.puts Channel.get(channel)
-    channel
+    {pid, channel}
   end
 
+  def get(channel) do
+    IO.puts Channel.get(channel)
+  end
+   
   def channel_size do
     channel = Channel.new(buffer_size: 10)
     chan = Channel.new
+    spawn_link(fn -> 1..15 |> Enum.map(fn x -> Channel.put(chan, x) end) end)
     for x <- chan, into: channel do
       x*2
     end
