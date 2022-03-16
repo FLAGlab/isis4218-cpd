@@ -1,0 +1,3 @@
+%{
+  "pinky": {:hex, :pinky, "0.2.0", "e1477b55bd776b2dc2f5c11d19d33ec1aadb817820becf75d54ffcbd1ccb2377", [:mix], [], "hexpm"},
+}
