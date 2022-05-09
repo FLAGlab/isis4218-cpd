@@ -1,0 +1,13 @@
+{application,tzdata,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"Tzdata is a parser and library for the tz database.\n"},
+              {modules,['Elixir.Tzdata','Elixir.Tzdata.BasicData',
+                        'Elixir.Tzdata.FarFutureDynamicPeriods',
+                        'Elixir.Tzdata.LeapSecParser','Elixir.Tzdata.Parser',
+                        'Elixir.Tzdata.ParserOrganizer',
+                        'Elixir.Tzdata.PeriodBuilder','Elixir.Tzdata.Periods',
+                        'Elixir.Tzdata.ReleaseParser',
+                        'Elixir.Tzdata.TableData','Elixir.Tzdata.TableParser',
+                        'Elixir.Tzdata.Util']},
+              {registered,[]},
+              {vsn,"0.1.201605"}]}.
