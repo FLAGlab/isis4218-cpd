@@ -1,0 +1,51 @@
+In computer science, concurrency refers to the ability of different parts or units of a program, algorithm, or problem to be executed out-of-order or in partial order, without affecting the final outcome. This allows for parallel execution of the concurrent units, which can significantly improve overall speed of the execution in multi-processor and multi-core systems. In more technical terms, concurrency refers to the decomposability property of a program, algorithm, or problem into order-independent or partially-ordered components or units.
+A number of mathematical models have been developed for general concurrent computation including Petri nets, process calculi, the parallel random-access machine model, the actor model and the Reo Coordination Language.
+Parallel computing is a type of computation in which many calculations or the execution of processes are carried out simultaneously.[1] Large problems can often be divided into smaller ones, which can then be solved at the same time. There are several different forms of parallel computing: bit-level, instruction-level, data, and task parallelism. Parallelism has long been employed in high-performance computing, but it's gaining broader interest due to the physical constraints preventing frequency scaling.[2] As power consumption (and consequently heat generation) by computers has become a concern in recent years,[3] parallel computing has become the dominant paradigm in computer architecture, mainly in the form of multi-core processors.
+Parallel computing is closely related to concurrent computing—they are frequently used together, and often conflated, though the two are distinct: it is possible to have parallelism without concurrency (such as bit-level parallelism), and concurrency without parallelism (such as multitasking by time-sharing on a single-core CPU).[5][6] In parallel computing, a computational task is typically broken down into several, often many, very similar subtasks that can be processed independently and whose results are combined afterwards, upon completion. In contrast, in concurrent computing, the various processes often do not address related tasks; when they do, as is typical in distributed computing, the separate tasks may have a varied nature and often require some inter-process communication during execution.
+Parallel computers can be roughly classified according to the level at which the hardware supports parallelism, with multi-core and multi-processor computers having multiple processing elements within a single machine, while clusters, MPPs, and grids use multiple computers to work on the same task. Specialized parallel computer architectures are sometimes used alongside traditional processors, for accelerating specific tasks.
+In some cases parallelism is transparent to the programmer, such as in bit-level or instruction-level parallelism, but explicitly parallel algorithms, particularly those that use concurrency, are more difficult to write than sequential ones,[7] because concurrency introduces several new classes of potential software bugs, of which race conditions are the most common. Communication and synchronization between the different subtasks are typically some of the greatest obstacles to getting good parallel program performance.
+A theoretical upper bound on the speed-up of a single program as a result of parallelization is given by Amdahl's law.
+A programming language is a formal language, which comprises a set of instructions used to produce various kinds of output. Programming languages are used to create programs that implement specific algorithms.
+Most programming languages consist of instructions for computers, although there are programmable machines that use a limited set of specific instructions, rather than the general programming languages of modern computers. Early ones preceded the invention of the digital computer, the first probably being the automatic flute player described in the 9th century by the brothers Musa in Baghdad, during the Islamic Golden Age.[1] From the early 1800s, programs were used to direct the behavior of machines such as Jacquard looms, music boxes and player pianos.[2] However, their programs (such as a player piano's scrolls) could not produce different behavior in response to some input or condition.
+Thousands of different programming languages have been created, mainly in the computer field, and many more still are being created every year. Many programming languages require computation to be specified in an imperative form (i.e., as a sequence of operations to perform) while other languages use other forms of program specification such as the declarative form (i.e. the desired result is specified, not how to achieve it).
+The description of a programming language is usually split into the two components of syntax (form) and semantics (meaning). Some languages are defined by a specification document (for example, the C programming language is specified by an ISO Standard) while other languages (such as Perl) have a dominant implementation that is treated as a reference. Some languages have both, with the basic language defined by a standard and extensions taken from the dominant implementation being common.
+Distributed computing is a field of computer science that studies distributed systems. A distributed system is a system whose components are located on different networked computers, which then communicate and coordinate their actions by passing messages to one other.[1] The components interact with one other in order to achieve a common goal. Three significant characteristics[why?] of distributed systems are: concurrency of components, lack of a global clock, and independent failure of components. Examples of distributed systems vary from SOA-based systems to massively multiplayer online games to peer-to-peer applications.
+A computer program that runs within a distributed system is called a distributed program (and distributed programming is the process of writing such programs).[2] There are many different types of implementations for the message passing mechanism, including pure HTTP, RPC-like connectors and message queues.
+Distributed computing also refers to the use of distributed systems to solve computational problems. In distributed computing, a problem is divided into many tasks, each of which is solved by one or more computers,[4] which communicate with each other via message passing.
+Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM).[3] Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design. The latter is supported by compile-time metaprogramming with macros and polymorphism via protocols.[4]
+
+Elixir is used by companies such as E-MetroTel, Pinterest[5] and Moz.[6] Elixir is also used for web development, by companies such as Bleacher Report, Discord, and Inverse,[7] and for building embedded systems.[8][9] The community organizes yearly events in United States[10], Europe[11] and Japan[12] as well as minor local events and conferences.[13][14]
+
+On July 12, 2018, Honeypot released a mini-documentary on Elixir.[15]
+
+
+Contents
+1	History
+2	Features
+3	Examples
+4	Noteworthy Elixir projects
+5	See also
+6	References
+7	External links
+History[edit]
+José Valim is the creator of the Elixir programming language, an R&D project of Plataformatec. His goals were to enable higher extensibility and productivity in the Erlang VM while keeping compatibility with Erlang's ecosystem.[16] [17]
+
+Features[edit]
+A language that compiles to bytecode for the Erlang Virtual Machine (BEAM)[18]
+Everything is an expression[18]
+Erlang functions can be called from Elixir without run time impact, due to compilation to Erlang bytecode, and vice versa
+Meta programming allowing direct manipulation of AST[18]
+Polymorphism via a mechanism called protocols. Like in Clojure, protocols provide a dynamic dispatch mechanism. However, this is not to be confused with multiple dispatch as Elixir protocols dispatch on a single type.
+Support for documentation via Python-like docstrings in the Markdown formatting language[18]
+Shared nothing concurrent programming via message passing (Actor model)[19]
+Emphasis on recursion and higher-order functions instead of side-effect-based looping
+Lightweight concurrency utilizing Erlang's mechanisms[18]
+Railway oriented programming via the with construct
+Built-in tooling for managing dependencies, code compilation, running tests, formatting code, remote debugging and more
+Lazy and async collections with streams
+Pattern matching[18] to promote assertive code[20]
+Unicode support and UTF-8 strings
+Examples[edit]
+The following examples can be run in an iex shell or saved in a file and run from the command line by typing elixir <filename>.
+
+Classic Hello world example:

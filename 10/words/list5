@@ -1,0 +1,37 @@
+Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM).[3] Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design. The latter is supported by compile-time metaprogramming with macros and polymorphism via protocols.[4]
+
+Elixir is used by companies such as E-MetroTel, Pinterest[5] and Moz.[6] Elixir is also used for web development, by companies such as Bleacher Report, Discord, and Inverse,[7] and for building embedded systems.[8][9] The community organizes yearly events in United States[10], Europe[11] and Japan[12] as well as minor local events and conferences.[13][14]
+
+On July 12, 2018, Honeypot released a mini-documentary on Elixir.[15]
+
+
+Contents
+1	History
+2	Features
+3	Examples
+4	Noteworthy Elixir projects
+5	See also
+6	References
+7	External links
+History[edit]
+José Valim is the creator of the Elixir programming language, an R&D project of Plataformatec. His goals were to enable higher extensibility and productivity in the Erlang VM while keeping compatibility with Erlang's ecosystem.[16] [17]
+
+Features[edit]
+A language that compiles to bytecode for the Erlang Virtual Machine (BEAM)[18]
+Everything is an expression[18]
+Erlang functions can be called from Elixir without run time impact, due to compilation to Erlang bytecode, and vice versa
+Meta programming allowing direct manipulation of AST[18]
+Polymorphism via a mechanism called protocols. Like in Clojure, protocols provide a dynamic dispatch mechanism. However, this is not to be confused with multiple dispatch as Elixir protocols dispatch on a single type.
+Support for documentation via Python-like docstrings in the Markdown formatting language[18]
+Shared nothing concurrent programming via message passing (Actor model)[19]
+Emphasis on recursion and higher-order functions instead of side-effect-based looping
+Lightweight concurrency utilizing Erlang's mechanisms[18]
+Railway oriented programming via the with construct
+Built-in tooling for managing dependencies, code compilation, running tests, formatting code, remote debugging and more
+Lazy and async collections with streams
+Pattern matching[18] to promote assertive code[20]
+Unicode support and UTF-8 strings
+Examples[edit]
+The following examples can be run in an iex shell or saved in a file and run from the command line by typing elixir <filename>.
+
+Classic Hello world example:

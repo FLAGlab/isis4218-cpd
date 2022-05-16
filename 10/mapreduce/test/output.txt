@@ -1,0 +1,456 @@
+runs
+                              1
+supported
+                              1
+top
+                              1
+2018,
+                              1
+provides
+                              1
+functional,
+                              1
+companies
+                              2
+productive
+                              1
+Pinterest[5]
+                              1
+organizes
+                              1
+polymorphism
+                              1
+shares
+                              1
+(BEAM).[3]
+                              1
+extensible
+                              1
+fault-tolerant
+                              1
+development,
+                              1
+embedded
+                              1
+latter
+                              1
+On
+                              1
+Europe[11]
+                              1
+macros
+                              1
+E-MetroTel,
+                              1
+States[10],
+                              1
+conferences.[13][14]
+                              1
+July
+                              1
+released
+                              1
+same
+                              1
+Contents
+                              1
+2	Features
+                              1
+4	Noteworthy
+                              1
+also
+                              3
+6	References
+                              1
+History[edit]
+                              1
+José
+                              1
+language,
+                              1
+project
+                              1
+His
+                              1
+enable
+                              1
+higher
+                              1
+VM
+                              1
+keeping
+                              1
+ecosystem.[16]
+                              1
+language
+                              2
+that
+                              2
+Virtual
+                              1
+Machine
+                              1
+expression[18]
+                              1
+Like
+                              1
+time
+                              1
+due
+                              1
+bytecode,
+                              1
+vice
+                              1
+allowing
+                              1
+AST[18]
+                              1
+called
+                              2
+protocols.
+                              1
+mechanism.
+                              1
+Support
+                              1
+docstrings
+                              1
+as
+                              5
+protocols
+                              2
+language[18]
+                              1
+type.
+                              1
+concurrent
+                              1
+message
+                              1
+However,
+                              1
+Markdown
+                              1
+yearly
+                              1
+nothing
+                              1
+recursion
+                              1
+Honeypot
+                              1
+Lightweight
+                              1
+Built-in
+                              1
+links
+                              1
+code
+                              1
+formatting
+                              2
+while
+                              1
+compiles
+                              1
+Unicode
+                              1
+Meta
+                              1
+matching[18]
+                              1
+this
+                              1
+Moz.[6]
+                              1
+Report,
+                              1
+and
+                              15
+local
+                              1
+can
+                              2
+3	Examples
+                              1
+shell
+                              1
+goals
+                              1
+example
+                              1
+impact,
+                              1
+a
+                              7
+manipulation
+                              1
+dynamic
+                              1
+the
+                              9
+elixir
+                              1
+iex
+                              1
+Classic
+                              1
+world
+                              1
+saved
+                              1
+file
+                              1
+confused
+                              1
+run
+                              3
+Python-like
+                              1
+concurrent,
+                              1
+Elixir
+                              9
+machine
+                              1
+dispatch
+                              3
+distributed,
+                              1
+Shared
+                              1
+web
+                              1
+passing
+                              1
+Bleacher
+                              1
+model)[19]
+                              1
+Inverse,[7]
+                              1
+functions
+                              2
+command
+                              1
+building
+                              2
+general-purpose
+                              1
+community
+                              1
+by
+                              4
+builds
+                              1
+Emphasis
+                              1
+on
+                              5
+Japan[12]
+                              1
+looping
+                              1
+abstractions
+                              1
+higher-order
+                              1
+applications.
+                              1
+minor
+                              1
+of
+                              5
+side-effect-based
+                              1
+design.
+                              1
+virtual
+                              1
+metaprogramming
+                              1
+protocols.[4]
+                              1
+used
+                              2
+such
+                              2
+concurrency
+                              1
+Erlang's
+                              2
+Discord,
+                              1
+Railway
+                              1
+tooling
+                              2
+programming
+                              5
+async
+                              1
+compile-time
+                              1
+utilizing
+                              1
+construct
+                              1
+dependencies,
+                              1
+Elixir.[15]
+                              1
+oriented
+                              1
+systems.[8][9]
+                              1
+collections
+                              1
+5	See
+                              1
+compilation,
+                              1
+tests,
+                              1
+creator
+                              1
+United
+                              1
+well
+                              1
+R&D
+                              1
+via
+                              5
+events
+                              2
+12,
+                              1
+mini-documentary
+                              1
+1	History
+                              1
+projects
+                              1
+7	External
+                              1
+Valim
+                              1
+extensibility
+                              1
+code,
+                              1
+debugging
+                              1
+Pattern
+                              1
+Features[edit]
+                              1
+provide
+                              1
+[17]
+                              1
+to
+                              6
+for
+                              6
+Plataformatec.
+                              1
+were
+                              1
+productivity
+                              1
+is
+                              7
+compatibility
+                              1
+Lazy
+                              1
+with
+                              5
+running
+                              1
+remote
+                              1
+code[20]
+                              1
+UTF-8
+                              1
+in
+                              6
+documentation
+                              1
+Examples[edit]
+                              1
+support
+                              1
+examples
+                              1
+an
+                              4
+or
+                              1
+Hello
+                              1
+Everything
+                              1
+A
+                              2
+(BEAM)[18]
+                              1
+compilation
+                              1
+direct
+                              1
+assertive
+                              1
+from
+                              2
+bytecode
+                              1
+without
+                              1
+versa
+                              1
+line
+                              1
+typing
+                              1
+Polymorphism
+                              1
+be
+                              3
+Erlang
+                              6
+<filename>.
+                              1
+The
+                              3
+mechanism
+                              1
+Clojure,
+                              1
+not
+                              1
+multiple
+                              1
+single
+                              1
+(Actor
+                              1
+instead
+                              1
+mechanisms[18]
+                              1
+managing
+                              1
+streams
+                              1
+more
+                              1
+promote
+                              1
+strings
+                              1
+following
+                              1
