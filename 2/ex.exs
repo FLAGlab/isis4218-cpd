@@ -34,17 +34,17 @@ defmodule Ex do
 
   def order do
     spawn(fn -> IO.puts "Reading record First from the database"
-      #:timer.sleep(250)
+      :timer.sleep(250)
       IO.puts "Saving record First to the database"
       :timer.sleep(250)
     end)
     spawn(fn -> IO.puts "Reading record Second from the database"
-      #:timer.sleep(250)
+      :timer.sleep(250)
       IO.puts "Saving record Second to the database"
       :timer.sleep(250)
     end)
     spawn(fn -> IO.puts "Reading record Third from the database"
-      #:timer.sleep(250)
+      :timer.sleep(250)
       IO.puts "Saving record Third to the database"
       :timer.sleep(250)
     end)
