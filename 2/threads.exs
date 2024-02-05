@@ -36,7 +36,7 @@ defmodule Threads do
       "sum is #{acc + num}"
     end
     asynch_adder = fn(num, acc) ->
-      caller = self
+      caller = self()
       spawn(fn ->
         send(caller, {:sum_res, adder2.(num, acc)})
       end)
