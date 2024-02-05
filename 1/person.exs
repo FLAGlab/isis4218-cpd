@@ -1,5 +1,5 @@
 defmodule Person do
-  defstruct name: "", age: 0, gender: :NONE, country: "Afganistan"
+  defstruct name: "", age: 10, gender: :NONE, country: "Afganistan"
 
   #@spec can_drink?(Person) :: Boolean
   @doc """

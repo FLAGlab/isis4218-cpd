@@ -1,5 +1,7 @@
 defmodule Lists do
 
+    #get the length of a list
+    @spec len(list(Literals)) :: integer() 
     def len(list) do
         defp len_iter(list, longitud) do
             case list do
