@@ -1,3 +1,3 @@
 %{
-  "mutex": {:hex, :mutex, "1.0.2", "282d611b1d0a7ed437334f31c6ea4e7ae55cf8bf82f35d4d5a4e272cae4c6eed", [:mix], [], "hexpm"},
+  "mutex": {:hex, :mutex, "2.0.0", "141b612ed58ed506927133ec5db9606f3dc7210a9b10601ab78f42df9f4f0407", [:mix], [], "hexpm", "5d066430954dfedfb9cce0c965a307d70c543a8df972ede905e155ee2f1c7050"},
 }
