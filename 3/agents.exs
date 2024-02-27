@@ -65,6 +65,6 @@ defmodule FibAgent do
 
   def main do
     {:ok, agent} = FibAgent.start_link()
-    IO.puts FibAgent.fib(agent, 2000)
+    IO.puts FibAgent.fib(agent, 37)
   end
 end
