@@ -15,6 +15,9 @@ defmodule Fail do
     a2 = spawn(&Fail.loop/0)
     send a1, {:link_to, a2}
     send a2, {:shutdown, :bye}
+
+    Process.alive?(a1)
+    Process.alive?(a2)
   end
 end
 
