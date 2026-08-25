@@ -44,7 +44,7 @@ defmodule Ex do
       :timer.sleep(250)
     end)
     spawn(fn -> IO.puts "Reading record Third from the database"
-      :timer.sleep(250)
+      #:timer.sleep(250)
       IO.puts "Saving record Third to the database"
       :timer.sleep(250)
     end)
@@ -56,7 +56,7 @@ defmodule Ex do
       IO.puts "#{elem}" end) end)
   end
 
-  def main3 do
+  def counting do
     count = 0
     increment = fn _ -> count + 1 end
     spawn(fn ->

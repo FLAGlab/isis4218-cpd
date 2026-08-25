@@ -10,11 +10,12 @@ defmodule Counting do
 
   def main do
     spawn(fn ->
-        IO.puts increment(Enum.to_list(1..10000), count())
+        res = IO.puts increment(Enum.to_list(1..10000), count())
+        spawn(fn ->
+        IO.puts increment(Enum.to_list(1..10000), res)
     end)
-    spawn(fn ->
-        IO.puts increment(Enum.to_list(1..10000), count())
     end)
+
   end
 
 
