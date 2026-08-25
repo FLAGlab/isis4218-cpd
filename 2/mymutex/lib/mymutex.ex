@@ -1,21 +1,17 @@
 defmodule MyMutex do
-  @mut OrderMutex
+  @mut MyMutex.OrderMutex
   @count CountMutex
 
   def unordered do
-    children = [
-      Mutex.child_spec(@mut)
-    ]
-    {:ok, _pid} = Supervisor.start_link(children, strategy: :one_for_one)
 
     resource_id = {User, {:id, 1}}
     database_op = fn(record) ->
       IO.puts "Reading record #{record} from the database"
-      Process.sleep(250)
+      Process.sleep(:rand.uniform(250))
       IO.puts "Manipulate record #{record}"
-      Process.sleep(250)
+      Process.sleep(:rand.uniform(250))
       IO.puts "Saving record #{record} to the database"
-      Process.sleep(250)
+      Process.sleep(:rand.uniform(250))
     end
     spawn(fn -> database_op.("First") end)
     spawn(fn -> database_op.("Second") end)
@@ -23,22 +19,23 @@ defmodule MyMutex do
   end
 
   def order do
+    #if pid = Process.whereis(MyMutex.OrderMutex), do: Process.unregister(MyMutex.OrderMutex)
     children = [
-      Mutex.child_spec(@mut)
+      {Mutex, name: @mut}
     ]
     {:ok, _pid} = Supervisor.start_link(children, strategy: :one_for_one)
 
     resource_id = {User, {:id, 1}}
     database_op = fn(record) ->
-      IO.puts "Reading record #{record} from the database"
-      Process.sleep(250)
       lock = Mutex.await(@mut, resource_id)
-      
-      IO.puts "Manipulate record #{record}"
-      Process.sleep(250)
-      IO.puts "Saving record #{record} to the database"
-      Process.sleep(250)
-      Mutex.release(@mut, lock)
+
+        IO.puts "Reading record #{record} from the database"
+        Process.sleep(:rand.uniform(250))
+        IO.puts "Manipulate record #{record}"
+        Process.sleep(:rand.uniform(250))
+        IO.puts "Saving record #{record} to the database"
+        Process.sleep(:rand.uniform(250))
+       :ok =  Mutex.release(@mut, lock)
     end
     spawn(fn -> database_op.("First") end)
     spawn(fn -> database_op.("Second") end)
