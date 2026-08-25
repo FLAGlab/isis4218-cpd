@@ -7,4 +7,7 @@ defmodule Clase do
         end.(x,y,z)
         
         b = fn (x, y, z) -> x + y + z end.(x,y,z)
+        
+        
+        
 end

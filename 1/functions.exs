@@ -1,9 +1,9 @@
 defmodule Functions do
-    
+
     @doc """
     Function definition
     """
-    def bar(x, y) do
+    def bar(x \\ 0, y \\ 1) do
         x-y
     end
 
@@ -19,7 +19,7 @@ defmodule Functions do
         if n == 0 do
             1
         else
-            n * fact(n-1) 
+            n * fact(n-1)
         end
     end
 
@@ -38,4 +38,10 @@ defmodule Functions do
             do_fact(n-1, acc*n)
         end
     end
+
+    def area(:circle, x, y \\ 0), do: x*x*:math.pi end
+    def area(:square, x, y \\ 0), do: x*x end
+
+    def area(:trinagle, a, b), do: a*b/2 end
+    def area(:rectangle, a, b), do: a*b end
 end
