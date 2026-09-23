@@ -64,11 +64,11 @@ defmodule AgentCounting do
   end
 
   def inc(counter) do
-    Agent.update(counter, fn val -> val + 1 end)
+    Agent.update(counter, fn val -> val - 1 end)
   end
 
   def main do
-    {:ok, counter} = AgentCounting.start_link(0)
+    {:ok, counter} = AgentCounting.start_link(20000)
     t1 = Task.async(fn -> Enum.each(1..10000, fn _ -> AgentCounting.inc(counter) end) end)
     t2 = Task.async(fn -> Enum.each(1..10000, fn _ -> AgentCounting.inc(counter) end) end)
     Task.await(t1)
