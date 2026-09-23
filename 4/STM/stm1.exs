@@ -37,7 +37,7 @@ defmodule STM1 do
     res = case Map.get(transaction_values, name) do
       nil -> %{:value => val, :revision => rev} = Agent.get(name, fn map -> map end)
               Map.put(transaction_values, name, val)
-              Map.get(transaction, :last_seen_rev) |> Map.update(name, rev)
+              Map.get(transaction, :last_seen_rev) |> Map.update(name, -1, rev)
               val
       value -> value
     end
@@ -61,16 +61,18 @@ defmodule STM1 do
     {:ok, _pid} = Supervisor.start_link(children, strategy: :one_for_one)
     tran_id = {Transaction, {:id, 1}}
     lock = Mutex.await(@mut, tran_id)
-    success = Map.get(transaction, :tran_values) |> Map.keys() |> validate()
+    tran_values = Map.get(transaction, :tran_values)
+    success =  tran_values |> Map.keys() |> validate(transaction)
     if success do
-      Agent.update(name, &Map.update(&1, :value, new_value, fn _ -> new_value end))
+      new_value = Map.values(tran_values) |> List.get(0)
+      Agent.update(name, &Map.update(&1, :value, fn _ -> new_value end))
       Agent.update(name, &Map.update(&1, :revision, fn n -> n + 1 end))
     end
     Mutex.release(@mut, lock)
     success
   end
 
-  defp validate vars do
+  defp validate(vars, transaction) do
     List.foldl(vars, true, fn var, acc ->
       (Agent.get(var, &Map.get(&1, :revision)) ==
        Map.get(transaction, :last_seen_rev) |> Map.get(var)) and acc
@@ -92,7 +94,7 @@ defmodule STM1 do
     :ets.insert(:registry, {:current_transaction, transaction})
     result = fun.()
     :ets.insert(:registry, {:current_transaction, nil})
-    case commit_transaction(transaction) do
+    case commit_transaction(@transaction_counter, transaction) do
       true -> result
       _ -> run_transaction(make_transaction(), fun)
     end
@@ -113,8 +115,8 @@ defmodule STM1 do
   end
 
   def test do
-    refs = Enum.map([1..10], &STM1.shared_variable(&1))
-    for _ <- 1..0 do
+    refs = Enum.map([1..10], &STM1.shared_variable(@transaction_counter, &1))
+    for _ <- 1..10 do
       spawn(fn -> Enum.map(refs, fn var ->
           fn -> Enum.map([1..10],
                 STM1.atomically(fn ->
