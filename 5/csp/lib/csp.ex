@@ -7,18 +7,44 @@ defmodule MyCSP do
         Channel.put(channel, :hello)
         Channel.put(channel, :cruel)
         Channel.put(channel, :world) end)
-    p = spawn_link(fn -> Channel.put(channel, :hello) end)    
-    :timer.sleep(1000)
+    :timer.sleep(2000)
     IO.puts Process.alive?(pid)
     IO.puts Channel.get(channel)
     IO.puts Channel.get(channel)
+    IO.puts Process.alive?(pid)
     {pid, channel}
+  end
+
+  def gets do
+    channel = Channel.new
+    pid = spawn_link(fn ->
+        Channel.put(channel, :hello) end)
+    c1 = spawn_link(fn -> IO.puts "c1 #{Channel.get(channel)}"
+                          IO.puts "c1 #{Channel.get(channel)}" end)
+    c2 = spawn_link(fn -> IO.puts "c2 #{Channel.get(channel)}" end)
+    c3 = spawn_link(fn -> IO.puts "c3 #{Channel.get(channel)}" end)
+  end
+
+  def puts do
+    channel = Channel.new
+    pid = spawn_link(fn ->
+        Channel.put(channel, :hello1)
+        IO.puts "end 1" end)
+    pid2 = spawn_link(fn ->
+        Channel.put(channel, :hello2) end)
+    pid3 = spawn_link(fn ->
+        Channel.put(channel, :hello3)
+        IO.puts "end 3" end)
+    c1 = spawn_link(fn -> IO.puts "c1 #{Channel.get(channel)}"
+                          end)
+    c2 = spawn_link(fn -> IO.puts "c2 #{Channel.get(channel)}" end)
+
   end
 
   def get(channel) do
     IO.puts Channel.get(channel)
   end
-   
+
   def channel_size do
     channel = Channel.new(buffer_size: 10)
     chan = Channel.new
