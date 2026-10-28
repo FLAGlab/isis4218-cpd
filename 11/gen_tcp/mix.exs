@@ -5,7 +5,7 @@ defmodule GenTcp.MixProject do
     [
       app: :gen_tcp,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
