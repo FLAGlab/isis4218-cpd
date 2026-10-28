@@ -29,7 +29,7 @@ end
 
 defmodule ParallelArithmetic do
   def test do
-    list = Enum.to_list(1..10_000_000)
+    list = Enum.to_list(1..10)
     min_pid = Task.async(fn -> Funs.minm(list) end)
     max_pid = Task.async(fn -> Funs.maxi(list) end)
     avg_pid = Task.async(fn -> Funs.avg(list) end)
@@ -52,5 +52,12 @@ defmodule ParallelArithmetic do
     Task.async(fn -> IO.puts Funs.minm(list) end)
     Task.async(fn -> IO.puts Funs.maxi(list) end)
     Task.async(fn -> IO.puts Funs.avg(list) end)
+  end
+
+  def test2 do
+    list = Enum.to_list(1..10_000_000)
+    Task.async_stream(fn -> IO.puts Funs.minm(list) end)
+    Task.async_stream(fn -> IO.puts Funs.maxi(list) end)
+    Task.async_stream(fn -> IO.puts Funs.avg(list) end)
   end
 end
