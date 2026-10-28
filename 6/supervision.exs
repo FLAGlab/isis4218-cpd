@@ -20,15 +20,15 @@ end
 defmodule Cache do
   def start_link do
     pid = spawn_link(__MODULE__, :loop, [Map.new, 0])
-    Process.register(pid, :cache)
+    Process.register(pid, :cache1)
     pid
   end
 
-  def put(url, page), do: send :cache, {:put, url, page}
+  def put(url, page), do: send :cache1, {:put, url, page}
 
   def get(url) do
     ref = make_ref()
-    send :cache, {:get, self(), ref, url}
+    send :cache1, {:get, self(), ref, url}
     receive do
       {:ok, ^ref, page} -> page
     end
@@ -36,14 +36,14 @@ defmodule Cache do
 
   def size do
     ref = make_ref()
-    send :cache, {:size, self(), ref}
+    send :cache1, {:size, self(), ref}
     receive do
       {:ok, ^ref, s} -> s
     end
   end
 
-  def terminate, do: send :cache, {:terminate}
-  def kill, do: send :cache, {:kill, :cache_failure}
+  def terminate, do: send :cache1, {:terminate}
+  def kill, do: send :cache1, {:kill, :cache1_failure}
 
   def loop(pages, size) do
     receive do
@@ -80,7 +80,7 @@ defmodule Test do
     a1 = spawn(&Test.loop/0)
     a2 = spawn(&Test.loop/0)
     op1(a1, "a", "b")
-    op1(a1, "a", nil)
+    op1(a1, "a", "a")
     op2(a2, "a")
   end
 

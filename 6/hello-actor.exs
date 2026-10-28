@@ -70,7 +70,15 @@ defmodule DoubleActor do
 end
 
 
-
+defmodule Actor do
+  def loop() do
+    receive do
+      {:hello, msg} -> IO.puts msg
+      {:a, msg} -> skip
+    end
+    loop()
+  end
+end
 
 defmodule Drown do
   def main() do
@@ -84,8 +92,8 @@ defmodule Drown do
   end
 
   def main3() do
-    actor  = spawn(&HelloActor.loop/0)
-    for i <- 1..1_000_000, do: send actor, {:a, "message #{i}"}
+    actor  = spawn(&Actor.loop/0)
+    for i <- 1..1_000_000_000_000, do: send actor, {:a, "message #{i}"}
     send actor, {:hello, "world"}
   end
 
@@ -95,6 +103,12 @@ defmodule Drown do
     send actor, {:hola, "Nicolas"}
     send actor, {:greeters}
     send actor, {:shutdown}
+  end
+
+  def main5() do
+    actor  = spawn(&HelloActor.loop/0)
+    spawn(fn -> for i <- 1..1_000_000, do: send actor, {:a, "message #{i}"} end)
+    send actor, {:hello, "world"}
   end
 end
 

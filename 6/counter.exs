@@ -1,4 +1,4 @@
-defmodule CounterActor do
+ defmodule CounterActor do
   def loop(count) do
     receive do
       {:next} -> IO.puts "counter is: #{count}"
